@@ -79,8 +79,6 @@ body{
   border-width: 0.5px;
   border-style: solid;
   border-color: black;
-
-  cursor: pointer;
 }
 
 
@@ -88,18 +86,21 @@ body{
   background-color: white;
   background-repeat: no-repeat;
   background-position: center;
+    cursor: pointer;
 }
 
 .movement-x{
   background-image: url("img/x.png");
   background-size: cover;
   background-position: cover;
+      cursor: default;
 }
 
 .movement-o{
   background-image: url("img/o.png");
   background-position: cover;
   background-size: cover;
+      cursor: pointer;
 }
 
 .field:after {

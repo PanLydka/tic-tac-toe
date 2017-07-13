@@ -1,34 +1,44 @@
 
 function Game(){
-  this.gameField = document.querySelector(".game").innerHTML;
-  this.actions = {
-     x: [],
-     o: []
-  };
-
-  this.count = 0;
   this.fields = document.querySelectorAll('[data-number]')
+
   this.winOptions = [
     ["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"],
     ["1", "4", "7"], ["2", "5", "8"], ["3", "6", "9"],
     ["1", "5", "9"], ["3", "5", "7"]
   ];
 
-  this.pickedFields = [];
+  this.newGame();
   this.currentPlayer = 'x';
-  this.nextMove(this.currentPlayer);
+  this.nextMove('o');
 }
 
+Game.prototype.newGame = function(){
 
-Game.prototype.start = function(){
-  document.querySelector(".game").innerHTML = this.gameField;
-  this.fields = document.querySelectorAll('[data-number]');
+  this.actions = {
+     x: [],
+     o: []
+  };
+
+  this.count = 0;
+
+  this.pickedFields = [];
   this.fieldsListener();
 }
 
-Game.prototype.reset = function(){
-  document.querySelectorAll(".field").classList.remove("movement-x");
+Game.prototype.resetGame = function(){
+
+  this.newGame();
+
+  document.querySelector(".result").classList.remove('result-visible');
+
+  document.querySelectorAll(".field").forEach(function(element){
+    element.classList.remove('movement-x');
+    element.classList.remove('movement-o');
+    delete element.dataset.picked;
+  });
 }
+
 
 Game.prototype.fieldsListener = function(){
     var self = this;
@@ -38,7 +48,11 @@ Game.prototype.fieldsListener = function(){
     });
 
     document.getElementById("again").addEventListener("click", function(){
-      location.reload();
+      self.resetGame();
+    });
+
+    document.getElementById("reset").addEventListener("click", function(){
+      self.resetGame();
     });
 
 
@@ -59,7 +73,7 @@ Game.prototype.fieldPick = function(numberField){
       this.actions[this.currentPlayer].push(numberField);
       this.count++;
       this.status(this.actions[this.currentPlayer]);
-      this.nextMove(this.currentPlaye);
+      this.nextMove(this.currentPlayer);
   }
 }
 
