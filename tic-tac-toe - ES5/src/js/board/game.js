@@ -116,6 +116,8 @@ Game.prototype.undoMove = function(test){
     this.actions[this.currentPlayer].splice((this.actions.o.length-1), 1);
     this.currentPlayer = (this.currentPlayer === 'o') ? 'x' : 'o';
 
+    document.querySelector(".result").classList.remove("result-visible");;
+
     this.count--;
 }
 
