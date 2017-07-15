@@ -30,11 +30,11 @@ Game.prototype.resetGame = function(){
 
   this.newGame();
 
-  document.querySelector(".result").classList.remove('result-visible');
+  document.querySelector(".result").classList.remove('result--visible');
 
   document.querySelectorAll(".field").forEach(function(element){
-    element.classList.remove('movement-x');
-    element.classList.remove('movement-o');
+    element.classList.remove('movement--x');
+    element.classList.remove('movement--o');
     delete element.dataset.picked;
   });
 }
@@ -68,7 +68,7 @@ Game.prototype.fieldPick = function(numberField){
   if((currentField.dataset.picked !== "picked")){
 
       this.currentPlayer = (this.currentPlayer === 'o') ? 'x' : 'o';
-      currentField.classList.add(`movement-${this.currentPlayer}`);
+      currentField.classList.add(`movement--${this.currentPlayer}`);
       currentField.dataset.picked = "picked";
       this.actions[this.currentPlayer].push(numberField);
       this.count++;
@@ -79,9 +79,9 @@ Game.prototype.fieldPick = function(numberField){
 
 Game.prototype.nextMove = function(value){
   document.getElementById("playerName").innerHTML = value;
-  document.querySelector(".nextMove").classList.add("nextMove-visible");
+  document.querySelector(".nextMove").classList.add("nextMove--visible");
   setTimeout(function(){
-    document.querySelector(".nextMove").classList.remove("nextMove-visible");
+    document.querySelector(".nextMove").classList.remove("nextMove--visible");
   }, 1000);
 }
 
@@ -100,7 +100,7 @@ Game.prototype.status = function(actionsPlayer){
 
 
 Game.prototype.finish = function(winner){
-  document.querySelector(".result").classList.add("result-visible");;
+  document.querySelector(".result").classList.add("result--visible");;
   document.getElementById("winner").innerHTML = winner;
 }
 
@@ -112,11 +112,11 @@ Game.prototype.undoMove = function(test){
     var currentField = document.querySelector(`[data-number="${ lastAction }"]`);
 
     delete currentField.dataset.picked;
-    currentField.classList.remove(`movement-${ this.currentPlayer }`);
+    currentField.classList.remove(`movement--${ this.currentPlayer }`);
     this.actions[this.currentPlayer].splice((this.actions.o.length-1), 1);
     this.currentPlayer = (this.currentPlayer === 'o') ? 'x' : 'o';
 
-    document.querySelector(".result").classList.remove("result-visible");;
+    document.querySelector(".result").classList.remove("result--visible");;
 
     this.count--;
 }
