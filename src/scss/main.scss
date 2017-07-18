@@ -7,6 +7,11 @@ body{
   font-family: 'Spectral', serif;
 }
 
+h1{
+  visibility: hidden;
+  position: absolute;
+}
+
 .container{
   margin: 0 auto;
 }

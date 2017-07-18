@@ -39,4 +39,4 @@ gulp.task('watch', () => {
     gulp.watch('./dist/**/*', ['html']);
 })
 
-gulp.task('default', ['html', 'js']);
+gulp.task('default', ['html', 'js', 'css']);
