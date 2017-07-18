@@ -15,5 +15,7 @@ gulp
 * **Kamil Łydka** - *(PanLydka)* - [https://github.com/PanLydka](https://github.com/PanLydka)
 
 
-### Did you find a defect? 
-Please report on the issues tab.
+
+
+#### Did you find a defect? 
+ Please report on the issues tab. 
