@@ -63,15 +63,23 @@ h1{
   height: 100%;
   width: 100%;
   position: absolute;
-  visibility: hidden;
   margin: auto;
   left: 0;
   right: 0;
   position: absolute;
   background-color: rgba(44, 62, 80, 0.9);
 
+  transition: opacity 0.7s;
+  opacity: 0;
+  visibility: hidden;
+
   z-index: 20;
   text-align: center;
+
+  &--visible{
+    visibility: visible;
+    opacity: 1;
+  }
 
   div{
     margin-top: 3%;
@@ -81,12 +89,6 @@ h1{
   span{
     display: inline-block;
   }
-}
-
-
-.result--visible{
-   visibility: visible;
-   animation: divin 0.7s;
 }
 
 .result-text{
