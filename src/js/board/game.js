@@ -8,9 +8,10 @@ function Game(){
     ["1", "5", "9"], ["3", "5", "7"]
   ];
 
-//  this.newGame();
   this.currentPlayer = 'x';
   this.nextMove('o');
+  this.newGame();
+  this.fieldsListener();
 }
 
 Game.prototype.newGame = function(){
@@ -28,7 +29,9 @@ Game.prototype.newGame = function(){
     button.disabled = false;
   });
 
-  this.fieldsListener();
+  document.getElementById("start").disabled = true;
+
+
 }
 
 Game.prototype.resetGame = function(){
@@ -100,7 +103,7 @@ Game.prototype.status = function(actionsPlayer){
   });
 
   if(!result) this.finish(this.currentPlayer);
-  if(result && this.count === 9) this.finish("REMIS");
+  if(result && this.count === 9) this.finish("remis");
 }
 
 
@@ -117,7 +120,7 @@ Game.prototype.undoMove = function(){
 
     delete currentField.dataset.picked;
     currentField.classList.remove(`movement--${ this.currentPlayer }`);
-    this.actions[this.currentPlayer].splice((this.actions.o.length-1), 1);
+    this.actions[this.currentPlayer].splice((this.actions[this.currentPlayer].length-1), 1);
     this.currentPlayer = (this.currentPlayer === 'o') ? 'x' : 'o';
 
     document.querySelector(".result").classList.remove("result--visible");;
