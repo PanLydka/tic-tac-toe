@@ -112,8 +112,6 @@ Game.prototype.finish = function(winner){
 Game.prototype.undoMove = function(){
   var self = this;
 
-    console.log('2');
-
     var lastAction = this.actions[this.currentPlayer][self.actions[self.currentPlayer].length-1];
     var currentField = document.querySelector(`[data-number="${ lastAction }"]`);
 
