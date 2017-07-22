@@ -65,13 +65,14 @@
 	    ["1", "5", "9"], ["3", "5", "7"]
 	  ];
 
-	  this.currentPlayer = 'x';
-	  this.nextMove('o');
 	  this.newGame();
+	  this.nextMove();
 	  this.fieldsListener();
 	}
 
 	Game.prototype.newGame = function(){
+
+	  this.currentPlayer = 'o';
 
 	  this.actions = {
 	     x: [],
@@ -132,18 +133,19 @@
 	  var currentField = document.querySelector("[data-number='" + numberField + "']");
 	  if((currentField.dataset.picked !== "picked")){
 
-	      this.currentPlayer = (this.currentPlayer === 'o') ? 'x' : 'o';
 	      currentField.classList.add(`movement--${this.currentPlayer}`);
 	      currentField.dataset.picked = "picked";
 	      this.actions[this.currentPlayer].push(numberField);
 	      this.count++;
 	      this.status(this.actions[this.currentPlayer]);
+
+	      this.currentPlayer = (this.currentPlayer === 'o') ? 'x' : 'o';
 	      this.nextMove(this.currentPlayer);
 	  }
 	}
 
-	Game.prototype.nextMove = function(value){
-	  document.getElementById("playerName").innerHTML = value;
+	Game.prototype.nextMove = function(){
+	  document.getElementById("playerName").innerHTML = this.currentPlayer;
 	  document.querySelector(".nextMove").classList.add("nextMove--visible");
 	  setTimeout(function(){
 	    document.querySelector(".nextMove").classList.remove("nextMove--visible");
@@ -172,13 +174,15 @@
 	Game.prototype.undoMove = function(){
 	  var self = this;
 
+	    this.currentPlayer = (this.currentPlayer === 'o') ? 'x' : 'o';
+
 	    var lastAction = this.actions[this.currentPlayer][self.actions[self.currentPlayer].length-1];
 	    var currentField = document.querySelector(`[data-number="${ lastAction }"]`);
 
 	    delete currentField.dataset.picked;
 	    currentField.classList.remove(`movement--${ this.currentPlayer }`);
 	    this.actions[this.currentPlayer].splice((this.actions[this.currentPlayer].length-1), 1);
-	    this.currentPlayer = (this.currentPlayer === 'o') ? 'x' : 'o';
+
 
 	    document.querySelector(".result").classList.remove("result--visible");;
 
