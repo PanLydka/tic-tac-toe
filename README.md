@@ -10,7 +10,7 @@ Here: https://panlydka.github.io/tic-tac-toe-ES5/
 git clone https://github.com/PanLydka/tic-tac-toe-ES5
 cd tic-tac-toe-ES5
 npm install
-gulp
+gulp /or/ npm run gulp
 ```
 
 
