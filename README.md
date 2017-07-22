@@ -1,7 +1,10 @@
 # Tic Tac Toe Game - ES5
 
-## Installing
+## Live Version
 
+Here: https://panlydka.github.io/tic-tac-toe-ES5/
+
+## Installing
 
 ```
 git clone https://github.com/PanLydka/tic-tac-toe-ES5
