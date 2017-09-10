@@ -7,16 +7,21 @@ Here: https://panlydka.github.io/tic-tac-toe-ES5/
 ## Installing
 
 ```
-git clone https://github.com/PanLydka/tic-tac-toe-ES5
-cd tic-tac-toe-ES5
-npm install
-gulp /or/ npm run gulp
+git clone https://github.com/PanLydka/Tajem-Master-Website-Template
+cd Tajem-Master-Website-Template
+npm run build
+```
+## Host
+Host is set on 192.168.0.6, to run website:
+```
+npm run dev
 ```
 
-
-### Author
+### Author Code
 * **Kamil Łydka** - *(PanLydka)* - [https://github.com/PanLydka](https://github.com/PanLydka)
 
+### Author PSD Template
+Project based on: https://www.behance.net/gallery/29537545/Tajam-Agency-Template-PSD
 
 
 
